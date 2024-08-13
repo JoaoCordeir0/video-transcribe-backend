@@ -14,9 +14,11 @@ class TranscribeController:
     """NOTE: Classe que controla as requisições de transcrições """
         
     params = None    
+    user = None
 
-    def __init__(self, params: VideoLinkModel | VideoFileModel) -> None:
+    def __init__(self, params: VideoLinkModel | VideoFileModel, user) -> None:
         self.params = params
+        self.user = user
 
     def exec_transcription(self, type) -> dict:             
         try:
@@ -94,7 +96,7 @@ class TranscribeController:
         mysql.close_conn()
 
     def start_video_link(self, params: VideoLinkModel) -> None:
-        progress = ProgressController(params=params)        
+        progress = ProgressController(params)        
         try:
             progress.save(1)         
 

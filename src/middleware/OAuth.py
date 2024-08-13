@@ -1,13 +1,14 @@
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
-from datetime import date
+import jwt
+from jwt import PyJWTError
 import os
 
 class OAuth:
 
     """NOTE: Classe que controla a autenticação na API
     
-       Utiliza-se Bearer Authentication
+       Utiliza-se Bearer Authentication sendo JWT o formato de token
     """
 
     oauth = OAuth2PasswordBearer(tokenUrl='/')
@@ -17,12 +18,13 @@ class OAuth:
 
     # Valida o token e retorna o usuário
     def auth(self, token: str = Depends(oauth)):        
-        return self.check_token(token)
+        return self.decode_token(token)                 
     
-    # Verifica se o token passado é igual ao setado, caso não gera uma exceção
-    def check_token(self, token: str):
-        secret_token = os.getenv('SERVICE_TOKEN') + str(date.today().day)
-        if secret_token != token:    
+    # Decodifica o token
+    def decode_token(self, token: str):                
+        try:                        
+            return jwt.decode(token, os.getenv('SECRET_KEY'), algorithms=['HS256'], options={'verify_exp': True})            
+        except PyJWTError:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail='Invalid token',
