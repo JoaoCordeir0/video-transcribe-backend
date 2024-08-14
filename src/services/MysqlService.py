@@ -25,6 +25,30 @@ class MysqlService():
             database=os.getenv('NAME_DATABASE')
         )
     
+    def login_user(self, params) -> None:
+        try:
+            query = 'SELECT * FROM users WHERE email = %s'
+
+            cursor = self.conn.cursor(dictionary=True)                    
+            cursor.execute(query, params)            
+            user = cursor.fetchall()
+            cursor.close()
+            return user[0]
+        except Exception as e: 
+            print(str(e))
+
+    def get_user_plan(self, params) -> None:
+        try:
+            query = 'SELECT validity, title, description, price FROM user_plan INNER JOIN plans ON user_plan.plan = plans.id WHERE user = %s ORDER BY user_plan.id DESC LIMIT 1'
+
+            cursor = self.conn.cursor(dictionary=True)                    
+            cursor.execute(query, params)            
+            plan = cursor.fetchall()
+            cursor.close()
+            return plan[0]
+        except Exception as e: 
+            print(str(e))
+
     def save_job_status(self, params) -> int:
         try:
             query = 'INSERT INTO jobs (user, video, progress, status) VALUES (%s, %s, %s, %s)'
@@ -62,9 +86,9 @@ class MysqlService():
         except Exception as e: 
             print(str(e))
 
-    def update_transcribe(self, params) -> None:
+    def save_transcribe_plus(self, params) -> None:
         try:
-            query = 'UPDATE videos SET video_name = %s, transcribe_pt = %s, transcribe_en = %s, transcribe_es = %s, segments = %s WHERE id = %s'
+            query = 'INSERT INTO videos_plus (video, language, transcribe, segments) VALUES (%s, %s, %s, %s)'
 
             cursor = self.conn.cursor()                    
             cursor.execute(query, params)
@@ -72,6 +96,17 @@ class MysqlService():
             cursor.close()            
         except Exception as e: 
             print(str(e))
+
+    def update_transcribe(self, params) -> None:
+        try:
+            query = 'UPDATE videos SET video_name = %s, transcribe = %s, segments = %s WHERE id = %s'
+
+            cursor = self.conn.cursor()                    
+            cursor.execute(query, params)
+            self.conn.commit()                        
+            cursor.close()            
+        except Exception as e: 
+            print(str(e))    
 
     def close_conn(self) -> None:
         self.conn.close()

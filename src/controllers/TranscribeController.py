@@ -50,6 +50,8 @@ class TranscribeController:
         mysql = MysqlService()
         file_service = FileService()
         
+        plan = mysql.get_user_plan((self.user['id'], ))
+
         filename = params.file.filename
         
         # Salva o video no mysql
@@ -69,21 +71,21 @@ class TranscribeController:
             progress.update(30, job_id)
                 
             # Chama o whisper para gerar os segmentos e texto           
-            text_pt, segments = WhisperService().exec_transcribe(
+            text, segments = WhisperService().exec_transcribe(
                 audio_path=audio_path,                 
             ) 
             progress.update(50, job_id)
 
-            # Pega o texto em en
-            text_en = TranslateService().translate_text_1(text=text_pt, language='en')
-            progress.update(65, job_id)
-
-            # Pega o texto em es
-            text_es = TranslateService().translate_text_1(text=text_pt, language='es')
-            progress.update(80, job_id)
+            if plan == 'Premium':
+                # Realiza a tradução e salva como plus
+                translate_text = TranslateService().translate_text_1(text=text, language='en')
+                translate_segments = ''    
+                            
+                mysql.save_transcribe_plus((video_id, 'en', translate_text, translate_segments))
+                progress.update(65, job_id)
 
             # Salva o texto e os segmentos no MYSQL                                                                       
-            mysql.update_transcribe((video_name, text_pt, text_en, text_es, json.dumps(segments), video_id))
+            mysql.update_transcribe((video_name, text, json.dumps(segments), video_id))
             progress.update(90, job_id)            
             
             # Exclui os arquivos usados da pasta tmp
