@@ -13,17 +13,20 @@ class UserController:
         self.mysql = MysqlService()
     
     def login(self) -> dict:                
-        user = self.mysql.login_user((self.params.email, ))
-        plan = self.mysql.get_user_plan((user['id'], ))
-        token = UserUtil.generate_token({
-            'id': user['id'],
-            'name': user['name'], 
-            'email': user['email'], 
-            'plan_title': plan['title'], 
-            'plan_validity': str(plan['validity'])
-        })
+        try:
+            user = self.mysql.login_user((self.params.email, ))
+            plan = self.mysql.get_user_plan((user['id'], ))
+            token = UserUtil.generate_token({
+                'id': user['id'],
+                'name': user['name'], 
+                'email': user['email'], 
+                'plan_title': plan['title'], 
+                'plan_validity': str(plan['validity'])
+            })
 
-        if UserUtil.check_password(user['password'].encode('utf-8'), self.params.password):
+            if not UserUtil.check_password(user['password'].encode('utf-8'), self.params.password):
+                raise Exception("Incorrect email or password!")
+
             return {
                 'status': 'success',
                 'user': {
@@ -35,7 +38,35 @@ class UserController:
                 },
                 'access_token': token,                
             }    
-        return {
-            'status': 'error',
-            'message': 'Incorrect email or password!'
-        }
+        except Exception as e:
+            return {
+                'status': 'error',
+                'message': str(e)
+            }
+    
+    def register(self) -> dict:
+        try:
+            userID = self.mysql.save_user(
+                (
+                    self.params.name,
+                    self.params.email,
+                    UserUtil.hash_password(self.params.password),
+                )
+            )
+            self.mysql.set_user_plan(
+                (
+                    userID,
+                    self.params.plan,
+                    self.params.validity,
+                )
+            )
+            return {
+                'status': 'success',
+                'message': 'User register success!',
+            }
+        except Exception as e:
+            return {
+                'status': 'error',
+                'message': str(e),
+            }
+        

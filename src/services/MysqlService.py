@@ -37,6 +37,19 @@ class MysqlService():
         except Exception as e: 
             print(str(e))
 
+    def save_user(self, params) -> int:
+        try:
+            query = 'INSERT INTO users (name, email, password, status) VALUES (%s, %s, %s, 1)'
+
+            cursor = self.conn.cursor()                    
+            cursor.execute(query, params)
+            user = cursor.lastrowid
+            self.conn.commit()                        
+            cursor.close()            
+            return user
+        except Exception as e: 
+            print(str(e))
+
     def get_user_plan(self, params) -> None:
         try:
             query = 'SELECT validity, title, description, price FROM user_plan INNER JOIN plans ON user_plan.plan = plans.id WHERE user = %s ORDER BY user_plan.id DESC LIMIT 1'
@@ -46,6 +59,19 @@ class MysqlService():
             plan = cursor.fetchall()
             cursor.close()
             return plan[0]
+        except Exception as e: 
+            print(str(e))
+
+    def set_user_plan(self, params) -> None:
+        try:
+            query = 'INSERT INTO user_plan (user, plan, validity) VALUES (%s, %s, %s)'
+
+            cursor = self.conn.cursor()                    
+            cursor.execute(query, params)
+            planID = cursor.lastrowid
+            self.conn.commit()                        
+            cursor.close()            
+            return planID
         except Exception as e: 
             print(str(e))
 
