@@ -25,7 +25,7 @@ class MysqlService():
             database=os.getenv('NAME_DATABASE')
         )
     
-    def login_user(self, params) -> None:
+    def login_user(self, params) -> dict:
         try:
             query = 'SELECT * FROM users WHERE email = %s'
 
@@ -34,6 +34,37 @@ class MysqlService():
             user = cursor.fetchall()
             cursor.close()
             return user[0]
+        except Exception as e: 
+            print(str(e))
+
+    def get_user_transcribes(self, params) -> dict:
+        try:
+            print(params)
+            data = []
+            query1 = 'SELECT * FROM jobs INNER JOIN videos on videos.id = jobs.video WHERE jobs.user = %s'
+
+            cursor1 = self.conn.cursor(dictionary=True)                    
+            cursor1.execute(query1, params)            
+            videos = cursor1.fetchall()
+
+            data.append({
+                'videos': videos
+            })
+            
+            for i in videos:                
+                query2 = 'SELECT * FROM videos_plus WHERE video = %s'
+
+                cursor2 = self.conn.cursor(dictionary=True)                    
+                cursor2.execute(query2, (i['video'], ))            
+                videos_plus = cursor2.fetchall()
+                
+                data.append({
+                    'videos_plus': videos_plus
+                })
+
+            cursor1.close()
+            cursor2.close()            
+            return data
         except Exception as e: 
             print(str(e))
 

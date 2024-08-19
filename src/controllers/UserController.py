@@ -7,9 +7,11 @@ class UserController:
         
     params = None
     mysql = None
+    user = None
 
-    def __init__(self, params) -> None:
+    def __init__(self, params, user) -> None:
         self.params = params
+        self.user = user            
         self.mysql = MysqlService()
     
     def login(self) -> dict:                
@@ -70,3 +72,15 @@ class UserController:
                 'message': str(e),
             }
         
+    def get_transcribes(self) -> dict:
+        try:            
+            transcribes = self.mysql.get_user_transcribes((self.user['id'], ))
+            return {
+                'status': 'success',
+                'data': transcribes,
+            }
+        except Exception as e:
+            return {
+                'status': 'error',
+                'message': str(e),
+            }

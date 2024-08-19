@@ -18,6 +18,10 @@ def main() -> object:
         'dev': 'João Victor Cordeiro',        
     }
 
+@router.get('/transcribes')
+def transcribes(user: dict = Depends(OAuth().auth)):
+    return UserController([], user).get_transcribes()
+
 """NOTE Rotas post da API -> """
 @router.post('/user/login')
 def login(params: LoginModel):

@@ -23,7 +23,7 @@ class OAuth:
     # Decodifica o token
     def decode_token(self, token: str):                
         try:                        
-            return jwt.decode(token, os.getenv('SECRET_KEY'), algorithms=['HS256'], options={'verify_exp': True})            
+            return jwt.decode(token, os.getenv('SECRET_KEY'), algorithms=['HS256'], options={'verify_exp': True})                        
         except PyJWTError:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,

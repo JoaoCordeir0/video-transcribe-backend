@@ -49,11 +49,13 @@ class TranscribeController:
     def start_video_file(self, params: VideoFileModel) -> None: 
         mysql = MysqlService()
         file_service = FileService()
-        
-        plan = mysql.get_user_plan((self.user['id'], ))
 
+        # Nome do video        
         filename = params.file.filename
         
+        # Plano do usuário
+        plan = mysql.get_user_plan((self.user['id'], ))
+
         # Salva o video no mysql
         video_id = mysql.save_transcribe((filename, ))         
         
@@ -67,7 +69,7 @@ class TranscribeController:
                 
         try:                       
             # Extraí para audio            
-            audio_path, audio_name, video_name = file_service.get_audio_file(file_path=f'./tmp/{filename}')
+            audio_path, _, video_name = file_service.get_audio_file(file_path=f'./tmp/{filename}')
             progress.update(30, job_id)
                 
             # Chama o whisper para gerar os segmentos e texto           
@@ -75,14 +77,23 @@ class TranscribeController:
                 audio_path=audio_path,                 
             ) 
             progress.update(50, job_id)
-
-            if plan == 'Premium':
-                # Realiza a tradução e salva como plus
-                translate_text = TranslateService().translate_text_1(text=text, language='en')
-                translate_segments = ''    
+            
+            # Salva em outros idiomas para os planos premium                        
+            translate = TranslateService()
+            if plan['title'] == 'Plano Premium':                                
+                for lang in ['en', 'es']:                    
+                    translate_text = translate.translate_text_1(text=text, language=lang)
+                    translate_segments = translate.translate_segments_1(segments=segments, language=lang)
                             
-                mysql.save_transcribe_plus((video_id, 'en', translate_text, translate_segments))
-                progress.update(65, job_id)
+                    mysql.save_transcribe_plus((video_id, lang, translate_text, json.dumps(translate_segments)))                
+
+            if plan['title'] == 'Plano Premium Plus':                
+                for lang in ['en', 'es', 'fr', 'de', 'it', 'ru', 'zh', 'ja', 'ko', 'ar', 'hi']:                    
+                    translate_text = translate.translate_text_2(text=text, language=lang)
+                    translate_segments = translate.translate_segments_2(segments=segments, language=lang)
+                            
+                    mysql.save_transcribe_plus((video_id, lang, translate_text, json.dumps(translate_segments)))
+            progress.update(70, job_id)                                
 
             # Salva o texto e os segmentos no MYSQL                                                                       
             mysql.update_transcribe((video_name, text, json.dumps(segments), video_id))
