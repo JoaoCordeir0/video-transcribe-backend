@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends
 from src.middleware.OAuth import OAuth
 from src.controllers.UserController import UserController
+from src.controllers.PlanController import PlanController
 from src.controllers.TranscribeController import TranscribeController
 from src.models.VideoLinkModel import VideoLinkModel
 from src.models.VideoFileModel import VideoFileModel
@@ -21,6 +22,10 @@ def main() -> object:
 @router.get('/transcribes')
 def transcribes(user: dict = Depends(OAuth().auth)):
     return UserController([], user).get_transcribes()
+
+@router.get('/plans')
+def transcribes():
+    return PlanController().get_plans()
 
 """NOTE Rotas post da API -> """
 @router.post('/user/login')

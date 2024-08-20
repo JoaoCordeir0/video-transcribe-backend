@@ -165,5 +165,17 @@ class MysqlService():
         except Exception as e: 
             print(str(e))    
 
+    def get_plans(self) -> dict:
+        try:
+            query = 'SELECT * FROM plans'
+
+            cursor = self.conn.cursor(dictionary=True)                    
+            cursor.execute(query)            
+            plans = cursor.fetchall()
+            cursor.close()
+            return plans
+        except Exception as e: 
+            print(str(e))
+
     def close_conn(self) -> None:
         self.conn.close()
