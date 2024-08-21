@@ -21,7 +21,7 @@ def main() -> object:
 
 @router.get('/transcribes')
 def transcribes(user: dict = Depends(OAuth().auth)):
-    return UserController([], user).get_transcribes()
+    return UserController(None, user).get_transcribes()
 
 @router.get('/plans')
 def transcribes():
@@ -30,11 +30,11 @@ def transcribes():
 """NOTE Rotas post da API -> """
 @router.post('/user/login')
 def login(params: LoginModel):
-    return UserController(params).login()
+    return UserController(params, None).login()
 
 @router.post('/user/register')
 def register(params: RegisterModel):
-    return UserController(params).register()
+    return UserController(params, None).register()
 
 @router.post('/transcribe/video-file')
 def exec_transcribe_file(params: VideoFileModel = Depends(VideoFileModel.get_form), user: dict = Depends(OAuth().auth)):
