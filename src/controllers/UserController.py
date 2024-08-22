@@ -72,6 +72,19 @@ class UserController:
                 'message': str(e),
             }
         
+    def get_transcribe(self, id) -> dict:
+        try:            
+            transcribe = self.mysql.get_transcribe((id, ))
+            return {
+                'status': 'success',
+                'data': transcribe,
+            }
+        except Exception as e:
+            return {
+                'status': 'error',
+                'message': str(e),
+            }
+        
     def get_transcribes(self) -> dict:
         try:            
             transcribes = self.mysql.get_user_transcribes((self.user['id'], ))

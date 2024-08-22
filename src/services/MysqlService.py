@@ -48,6 +48,25 @@ class MysqlService():
         except Exception as e: 
             print(str(e))
 
+    def get_transcribe(self, params) -> dict:
+        try:                                 
+            query1 = 'SELECT * FROM videos WHERE id = %s'
+            cursor1 = self.conn.cursor(dictionary=True)                    
+            cursor1.execute(query1, params)            
+            video = cursor1.fetchall()[0]
+            cursor1.close()       
+            query2 = 'SELECT * FROM videos_plus WHERE video = %s'
+            cursor2 = self.conn.cursor(dictionary=True)                    
+            cursor2.execute(query2, (video['id'], ))            
+            videos_plus = cursor2.fetchall()
+            cursor2.close()       
+            return {
+                'video': video,
+                'videos_plus': videos_plus,
+            }
+        except Exception as e: 
+            print(str(e))
+
     def save_user(self, params) -> int:
         try:
             query = 'INSERT INTO users (name, email, password, status) VALUES (%s, %s, %s, 1)'

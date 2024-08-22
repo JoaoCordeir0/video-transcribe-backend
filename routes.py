@@ -19,6 +19,10 @@ def main() -> object:
         'dev': 'João Victor Cordeiro',        
     }
 
+@router.get('/transcribe/{id}')
+def transcribes(id: int, user: dict = Depends(OAuth().auth)):
+    return UserController(None, user).get_transcribe(id)
+
 @router.get('/transcribes')
 def transcribes(user: dict = Depends(OAuth().auth)):
     return UserController(None, user).get_transcribes()
