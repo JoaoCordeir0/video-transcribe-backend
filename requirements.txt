@@ -12,3 +12,6 @@ tqdm==4.66.4
 SpeechRecognition==3.10.4
 moviepy==1.0.3
 googletrans-py==4.0.0
+PyJWT==2.9.0 
+bcrypt==4.2.0 
+pytube==15.0.0 
