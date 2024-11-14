@@ -176,6 +176,18 @@ class MysqlService:
         except Exception as e:
             print(str(e))
 
+    def get_vtt(self, params) -> dict:
+        try:
+            query = 'SELECT segments FROM videos WHERE id = %s' 
+
+            cursor = self.conn.cursor(dictionary=True)                    
+            cursor.execute(query, params)            
+            plan = cursor.fetchall()
+            cursor.close()
+            return plan[0]
+        except Exception as e: 
+            print(str(e))
+        
     def close_conn(self) -> None:
         self.conn.close()
 

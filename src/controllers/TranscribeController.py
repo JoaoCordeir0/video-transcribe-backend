@@ -121,3 +121,6 @@ class TranscribeController:
             progress.save(100)            
         except Exception as e:
             progress.save_error(error=str(e))
+
+    def generate_vtt(self): 
+        ...

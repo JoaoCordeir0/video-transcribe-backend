@@ -15,3 +15,4 @@ googletrans-py==4.0.0
 PyJWT==2.9.0 
 bcrypt==4.2.0 
 pytube==15.0.0 
+nlpcloud==1.1.46

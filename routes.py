@@ -2,10 +2,13 @@ from fastapi import APIRouter, Depends
 from src.dto.UpdatePlanDTO import UpdatePlanDTO
 from src.middleware.OAuth import OAuth
 from src.controllers.UserController import UserController
+from src.controllers.VttController import VttController
+from src.controllers.SummaryController import SummaryController
 from src.controllers.PlanController import PlanController
 from src.controllers.TranscribeController import TranscribeController
 from src.models.VideoLinkModel import VideoLinkModel
 from src.models.VideoFileModel import VideoFileModel
+from src.models.SummaryModel import SummaryModel
 from src.models.UserModel import LoginModel, RegisterModel
 
 router = APIRouter()
@@ -37,9 +40,14 @@ def transcribes(user: dict = Depends(OAuth().auth)):
 def transcribes():
     return PlanController().get_plans()
 
-
 """NOTE Rotas post da API -> """
+@router.get('/transcribe/vtt/{id}')
+def generate_vtt(id, user: dict = Depends(OAuth().auth)):
+    return VttController().generate_vtt(id)
 
+@router.get('/transcribe/vttplus/{id}')
+def generate_vtt_plus(id, user: dict = Depends(OAuth().auth)):
+    return VttController().generate_vtt_plus(id)
 
 @router.post("/user/login")
 def login(params: LoginModel):
@@ -61,14 +69,8 @@ def exec_transcribe_file(
 
 @router.post("/transcribe/video-link")
 def exec_transcribe_link(params: VideoLinkModel):
-    return TranscribeController(params).exec_transcription("link")
+    return TranscribeController(params).exec_transcription('link')
 
-
-@router.post("/user/update-plan")
-def update_plan(params: UpdatePlanDTO):
-    return UserController(params, None).update_plan(params.user_id, params.plan_id)
-
-
-@router.get("/user/update-plan/{user_id}")
-def get_update_plan(user_id: int):
-    return UserController(None, None).get_user_plan_data(user_id)
+@router.post('/summary/generate')
+def generate_summary(params: SummaryModel, user: dict = Depends(OAuth().auth)):
+    return SummaryController(params).generate_summary()

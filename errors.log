@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 2024-11-06 18:42:16,943 - main - ERROR - Error without request: GET http://localhost:8080/plans
 Traceback (most recent call last):
   File "/home/luizfgdo/Projects/video-transcribe-backend/.venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 327, in _open_connection
@@ -69,28 +70,50 @@ Traceback (most recent call last):
   File "/home/luizfgdo/Projects/video-transcribe-backend/.venv/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
     return self.receive_nowait()
   File "/home/luizfgdo/Projects/video-transcribe-backend/.venv/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+=======
+2024-11-14 12:29:00,316 - main - ERROR - Error without request: POST http://127.0.0.1:8000/summary/generate
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+>>>>>>> Stashed changes
     raise WouldBlock
 anyio.WouldBlock
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
+<<<<<<< Updated upstream
   File "/home/luizfgdo/Projects/video-transcribe-backend/.venv/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
     return receiver.item
+=======
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+           ^^^^^^^^^^^^^
+>>>>>>> Stashed changes
 AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
+<<<<<<< Updated upstream
   File "/home/luizfgdo/Projects/video-transcribe-backend/.venv/lib/python3.10/site-packages/starlette/middleware/base.py", line 159, in call_next
     message = await recv_stream.receive()
   File "/home/luizfgdo/Projects/video-transcribe-backend/.venv/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+=======
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 159, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 126, in receive
+>>>>>>> Stashed changes
     raise EndOfStream
 anyio.EndOfStream
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
+<<<<<<< Updated upstream
   File "/home/luizfgdo/Projects/video-transcribe-backend/main.py", line 35, in log_exceptions
     response = await call_next(request)
   File "/home/luizfgdo/Projects/video-transcribe-backend/.venv/lib/python3.10/site-packages/starlette/middleware/base.py", line 165, in call_next
@@ -141,28 +164,104 @@ Traceback (most recent call last):
   File "/home/luizfgdo/Projects/video-transcribe-backend/.venv/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
     return self.receive_nowait()
   File "/home/luizfgdo/Projects/video-transcribe-backend/.venv/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+=======
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/main.py", line 35, in log_exceptions
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 165, in call_next
+    raise app_exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/concurrency.py", line 42, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2441, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 943, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/routes.py", line 55, in generate_summary
+    return SummaryController(params).generate_summary()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SummaryController.__init__() missing 1 required positional argument: 'user'
+2024-11-14 12:29:03,384 - main - ERROR - Error without request: POST http://127.0.0.1:8000/summary/generate
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+>>>>>>> Stashed changes
     raise WouldBlock
 anyio.WouldBlock
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
+<<<<<<< Updated upstream
   File "/home/luizfgdo/Projects/video-transcribe-backend/.venv/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
     return receiver.item
+=======
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+           ^^^^^^^^^^^^^
+>>>>>>> Stashed changes
 AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
+<<<<<<< Updated upstream
   File "/home/luizfgdo/Projects/video-transcribe-backend/.venv/lib/python3.10/site-packages/starlette/middleware/base.py", line 159, in call_next
     message = await recv_stream.receive()
   File "/home/luizfgdo/Projects/video-transcribe-backend/.venv/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+=======
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 159, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 126, in receive
+>>>>>>> Stashed changes
     raise EndOfStream
 anyio.EndOfStream
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
+<<<<<<< Updated upstream
   File "/home/luizfgdo/Projects/video-transcribe-backend/main.py", line 35, in log_exceptions
     response = await call_next(request)
   File "/home/luizfgdo/Projects/video-transcribe-backend/.venv/lib/python3.10/site-packages/starlette/middleware/base.py", line 165, in call_next
@@ -1324,3 +1423,488 @@ Traceback (most recent call last):
   File "/home/luizfgdo/Projects/video-transcribe-backend/.venv/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 332, in _open_connection
     raise get_mysql_exception(
 mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on 'localhost:3306' (111)
+=======
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/main.py", line 35, in log_exceptions
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 165, in call_next
+    raise app_exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/concurrency.py", line 42, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2441, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 943, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/routes.py", line 55, in generate_summary
+    return SummaryController(params).generate_summary()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SummaryController.__init__() missing 1 required positional argument: 'user'
+2024-11-14 12:29:15,316 - main - ERROR - Error without request: POST http://127.0.0.1:8000/summary/generate
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+           ^^^^^^^^^^^^^
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 159, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/main.py", line 35, in log_exceptions
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 165, in call_next
+    raise app_exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/concurrency.py", line 42, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2441, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 943, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/routes.py", line 55, in generate_summary
+    return SummaryController(params).generate_summary()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SummaryController.__init__() missing 1 required positional argument: 'user'
+2024-11-14 12:29:25,358 - main - ERROR - Error without request: POST http://127.0.0.1:8000/summary/generate
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+           ^^^^^^^^^^^^^
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 159, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/main.py", line 35, in log_exceptions
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 165, in call_next
+    raise app_exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/concurrency.py", line 42, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2441, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 943, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/routes.py", line 55, in generate_summary
+    return SummaryController(params).generate_summary()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SummaryController.__init__() missing 1 required positional argument: 'user'
+2024-11-14 12:30:46,775 - main - ERROR - Error without request: POST http://127.0.0.1:8000/summary/generate
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+           ^^^^^^^^^^^^^
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 159, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/main.py", line 35, in log_exceptions
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 165, in call_next
+    raise app_exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/concurrency.py", line 42, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2441, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 943, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/routes.py", line 55, in generate_summary
+    return SummaryController(params).generate_summary()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SummaryController.__init__() missing 1 required positional argument: 'user'
+2024-11-14 14:13:20,182 - main - ERROR - Error without request: GET http://127.0.0.1:8000/transcribe/vtt/1
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+           ^^^^^^^^^^^^^
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 159, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/main.py", line 35, in log_exceptions
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 165, in call_next
+    raise app_exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/concurrency.py", line 42, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2441, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 943, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/routes.py", line 39, in generate_vtt
+    return VttController().generate_vtt(id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/src/controllers/VttController.py", line 13, in generate_vtt
+    vtt = VTTService()
+          ^^^^^^^^^^^^
+TypeError: VTTService.__init__() missing 1 required positional argument: 'language'
+2024-11-14 14:13:54,187 - main - ERROR - Error without request: GET http://127.0.0.1:8000/transcribe/vtt/1
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+           ^^^^^^^^^^^^^
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 159, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/main.py", line 35, in log_exceptions
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 165, in call_next
+    raise app_exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 148, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 65, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 756, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 776, in app
+    await route.handle(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 297, in handle
+    await self.app(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 77, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 72, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/starlette/concurrency.py", line 42, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2441, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 943, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/routes.py", line 39, in generate_vtt
+    return VttController().generate_vtt(id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/src/controllers/VttController.py", line 16, in generate_vtt
+    vtt = vtt.generate_vtt(segments, './tmp/teste.vtt')
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jvcordeiro/my-projects/trabalho_mateus/video-transcribe-backend/src/services/VTTService.py", line 30, in generate_vtt
+    text = segment['content']
+           ~~~~~~~^^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+>>>>>>> Stashed changes
