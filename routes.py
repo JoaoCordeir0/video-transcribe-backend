@@ -74,3 +74,11 @@ def exec_transcribe_link(params: VideoLinkModel):
 @router.post('/summary/generate')
 def generate_summary(params: SummaryModel, user: dict = Depends(OAuth().auth)):
     return SummaryController(params).generate_summary()
+
+@router.post("/user/update-plan")
+def update_plan(params: UpdatePlanDTO):
+    return UserController(params, None).update_plan(params.user_id, params.plan_id)
+    
+@router.get("/user/update-plan/{user_id}")
+def get_update_plan(user_id: int):
+    return UserController(None, None).get_user_plan_data(user_id)
